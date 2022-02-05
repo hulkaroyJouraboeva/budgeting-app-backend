@@ -38,10 +38,9 @@ transactionsApp.delete('/:index', (request, response) => {
     const { index } = request.params;
     if (transactionsArray[index]) {
         const [deletedData] = transactionsArray.splice(index, 1);
-        response.status(200).json({ 
-            yourDeletedData: deletedData,
-            risidualData: transactionsArray
-        });
+        response.status(200).json(deletedData);
+        // yourDeletedData: deletedData,
+        // risidualData: transactionsArray
     } else {
         response.status(404).json({ 
             error: `Could not delete, data at index: ${index} not found`, 
